@@ -5,7 +5,7 @@ By creating a function a new execution context is created and all variables and 
 
 ## WTF
 ```js
-function () { console.log('Hello World') }();       // SyntaxError: Unexpected token (
+function () { console.log('Hello World') }()       // SyntaxError: Unexpected token (
 ```
 
 ### Why?
@@ -16,7 +16,7 @@ The `SyntaxError` exception is because the function declaration requires a name 
 In order to treat it as a `function expression` we need to explicitly tell the parser.
 
 ```js
-(function () { console.log('Hello World') })();     // 'Hello World'
+(function () { console.log('Hello World') })()     // 'Hello World'
 ```
 
 ### Further Reading
@@ -25,7 +25,7 @@ In order to treat it as a `function expression` we need to explicitly tell the p
 
 ## WTF
 ```js
-function foo() { console.log('Hello World') }();  // SyntaxError: Unexpected token )
+function foo() { console.log('Hello World') }()  // SyntaxError: Unexpected token )
 ```
 
 ### Why?
@@ -40,7 +40,7 @@ The `SyntaxError` comes because a grouping operator needs to contain an expressi
 
 ## WTF
 ```js
-!function () { console.log('Hello World') }();  // Hello World
+!function () { console.log('Hello World') }()  // Hello World
 ```
 
 ### Why?
@@ -56,15 +56,15 @@ However, please do remember that this approach makes the code less readable.
 
 #### ~ WTF
 ```js
-var foo = function () { return 'Hello World' }();
+var foo = function () { return 'Hello World' }()
 
-true && function () { console.log('Hello World') }();
-0, function () { console.log('Hello World') }();
+true && function () { console.log('Hello World') }()
+0, function () { console.log('Hello World') }()
 
-+function () { console.log('Hello World') }();
--function () { console.log('Hello World') }();
-*function () { console.log('Hello World') }();
-~function () { console.log('Hello World') }();
++function () { console.log('Hello World') }()
+-function () { console.log('Hello World') }()
+*function () { console.log('Hello World') }()
+~function () { console.log('Hello World') }()
 ```
 
 ### Further Reading
