@@ -5,7 +5,7 @@ By creating a function a new execution context is created and all variables and 
 
 ## WTF
 ```js
-function () { console.log('Hello World') }() // SyntaxError: Unexpected token (
+function () { console.log('Hello World') }();       // SyntaxError: Unexpected token (
 ```
 
 ### Why?
@@ -13,18 +13,19 @@ When the parser encounters the `function` keyword in the global scope or inside 
 
 The `SyntaxError` exception is because the function declaration requires a name and the parser got our `(` after the `function` keyword instead of the name.
 
-### Solution
 In order to treat it as a `function expression` we need to explicitly tell the parser.
 
 ```js
-(function () { console.log('Hello World') })();
-// or
-(function () { console.log('Hello World') }());
+(function () { console.log('Hello World') })();     // 'Hello World'
 ```
+
+### Further Reading
+* [Ben Alman - IIFE](http://benalman.com/news/2010/11/immediately-invoked-function-expression/)
+* [Stackoverflow - gion_13](http://stackoverflow.com/a/8228308)
 
 ## WTF
 ```js
-function hello() { console.log('Hello World') }() // SyntaxError: Unexpected token )
+function foo() { console.log('Hello World') }();  // SyntaxError: Unexpected token )
 ```
 
 ### Why?
@@ -34,20 +35,12 @@ We usually place parens after an expression in order to indicate that the expres
 
 The `SyntaxError` comes because a grouping operator needs to contain an expression.
 
-### Solution
-Place our function declaration into a grouping operator.
-
-By doing this our `function declaration` would be interpreted as a `function expression` because parens can only contain expressions.
-
-```js
-(function hello() { console.log('Hello World') })();
-// or
-(function hello() { console.log('Hello World') }());
-```
+### Further Reading
+* [Ben Alman - IIFE](http://benalman.com/news/2010/11/immediately-invoked-function-expression/)
 
 ## WTF
 ```js
-!function () { console.log('Hello World') }() // Hello World
+!function () { console.log('Hello World') }();  // Hello World
 ```
 
 ### Why?
@@ -61,9 +54,9 @@ Although we don't need to wrap our function inside parens (this is because our p
 
 However, please do remember that this approach makes the code less readable.
 
-### Similar Solutions
+#### ~ WTF
 ```js
-var hello = function () { return 'Hello World' }();
+var foo = function () { return 'Hello World' }();
 
 true && function () { console.log('Hello World') }();
 0, function () { console.log('Hello World') }();
@@ -74,5 +67,6 @@ true && function () { console.log('Hello World') }();
 ~function () { console.log('Hello World') }();
 ```
 
-## Further Reading
+### Further Reading
 * [Ben Alman - IIFE](http://benalman.com/news/2010/11/immediately-invoked-function-expression/)
+* [Wikipedia - Immediately-invoked function expression](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression)
