@@ -31,7 +31,7 @@ By [definition](https://www.ecma-international.org/ecma-262/6.0/index.html#sec-t
 On the other hand, when converting an object into a string Javascript tries to convert it to an non-Object type. For array it tries to convert it to a string, which is done by executing the method `.toString`. By definition `toString` applies the string conversion to all array elements and [joins](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/join) them into one string. However, if an element is `undefined` or `null`, it is converted to the empty string.
 
 ### Further Reading
-* [ECMAScript® 2015 Language Specification - ToString ( argument )](https://www.ecma-international.org/ecma-262/6.0/index.html#sec-tostring)
+* [ECMAScript® 2015 Language Specification - ToString](https://www.ecma-international.org/ecma-262/6.0/index.html#sec-tostring)
 * [Kyle Simpsons - What the... JavaScript? (YouTube)](https://www.youtube.com/watch?v=2pL28CcEijU)
 
 ## WTF
@@ -48,7 +48,7 @@ The reason for this is that ECMAScript Team has decided that `Symbol`s can be ex
 For that reason `String(s)` work perfectly and prints out the string `'Symbol(Hello World)'` but the expression `s + ''` throws an error.
 
 ### Further Reading
-* [ECMAScript® 2015 Language Specification - ToString ( argument )](https://www.ecma-international.org/ecma-262/6.0/index.html#sec-tostring)
+* [ECMAScript® 2015 Language Specification - ToString](https://www.ecma-international.org/ecma-262/6.0/index.html#sec-tostring)
 
 ## WTF
 ```js
