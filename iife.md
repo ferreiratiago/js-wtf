@@ -46,9 +46,9 @@ The `SyntaxError` comes because a grouping operator needs to contain an expressi
 ### Why?
 The big difference here is that we are dealing with `function expressions`.
 
-When our parser reaches our unitary operator `!` it expects an expression after it.
+When our parser reaches our unary operator `!` it expects an expression after it.
 
-Because we have a `function expression` followed by parens our function would be executed (thereby logging `Hello World`) and the result used for the unitary operator `!`.
+Because we have a `function expression` followed by parens our function would be executed (thereby logging `Hello World`) and the result used for the unary operator `!`.
 
 Although we don't need to wrap our function inside parens (this is because our parser is already expecting an expression), it's still a good idea to use them. Such parens will typically indicate that the function expression is to be executed immediately. Also, it is a good convention.
 
