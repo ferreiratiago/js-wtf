@@ -89,3 +89,27 @@ We can safely use `Number.MIN_SAFE_INTEGER`, the smallest integer `n`, i.e. −(
 * [Kyle Simpsons - What the... JavaScript? (YouTube)](https://www.youtube.com/watch?v=2pL28CcEijU)
 * [ECMAScript® 2015 Language Specification - Number.MAX_VALUE](https://www.ecma-international.org/ecma-262/6.0/index.html#sec-number.max_value)
 * [ECMAScript® 2015 Language Specification - Number.MIN_VALUE](https://www.ecma-international.org/ecma-262/6.0/index.html#sec-number.min_value)
+
+## WTF
+```js
+42.toFixed(2)       // SyntaxError: Invalid or unexpected token
+42. toFixed(2)      // SyntaxError: Unexpected identifier
+42 .toFixed(2)      // '42.00'
+42 . toFixed(2)     // '42.00'
+42.0.toFixed(2)     // '42.00'
+42..toFixed(2)      // '42.00'
+(42).toFixed(2)     // '42.00'
+```
+
+### Why?
+Having a period after a number is the way to say that a number is fractional. However this makes the use of static methods inconsistent.
+
+On our first example `42.toFixed(2)` because `42.` is a completely valid number it reads it and immediately confronted with `toFixed`, which makes it an invalid expression.
+
+Even a space between `42.` and `toFixed` does not solves the problem. However, a space between `42` and `.toFixed` solves the problem.
+
+Another way to fix this (if we can call it a fix) is to treat our period as part of our number or wrap it inside parens.
+
+### Further Reading
+* [MDN - Number.prototype.toFixed()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed)
+* [Kyle Simpsons - What the... JavaScript? (YouTube)](https://www.youtube.com/watch?v=2pL28CcEijU)
