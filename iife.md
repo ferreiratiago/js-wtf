@@ -1,5 +1,5 @@
 # IIFE
-`IIFE` (Immediately-Invoked Function Expression) is the Javascript way to create an execution context and execute it immediately.
+`IIFE` (Immediately-Invoked Function Expression) is the JavaScript way to create an execution context and execute it immediately.
 
 By creating a function a new execution context is created and all variables and functions only live there, meaning that they cannot be access from the outside.
 

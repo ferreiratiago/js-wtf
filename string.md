@@ -28,7 +28,7 @@ String([undefined])  //  ''
 ### Why?
 By [definition](https://www.ecma-international.org/ecma-262/6.0/index.html#sec-tostring) when converting `null` or `undefined` into a string we get the `'null'` and `'undefined'` string respectively.
 
-On the other hand, when converting an object into a string Javascript tries to convert it to an non-Object type. For array it tries to convert it to a string, which is done by executing the method `.toString`. By definition `toString` applies the string conversion to all array elements and [joins](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/join) them into one string. However, if an element is `undefined` or `null`, it is converted to the empty string.
+On the other hand, when converting an object into a string  tries to convert it to an non-Object type. For array it tries to convert it to a string, which is done by executing the method `.toString`. By definition `toString` applies the string conversion to all array elements and [joins](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/join) them into one string. However, if an element is `undefined` or `null`, it is converted to the empty string.
 
 ### Further Reading
 * [ECMAScript® 2015 Language Specification - ToString](https://www.ecma-international.org/ecma-262/6.0/index.html#sec-tostring)
@@ -81,7 +81,7 @@ To understand this we need to break it down:
     * Next, our logical NOT `!` will negate the truthy of `0`, which is first converted to the boolean `false`.
     * In short, `!+[]` > `!+''` > `!+0` > `!0` > `!false` > `true`.
 * At this stage our expression is translated into `(true+[]+![]).length`, and the follow operation to take place is `true+[]`.
-    * This time our `+` operator works as a concatenation operator evaluating first the first operand `true`. By specification `true` is converted into the string `'true'`.
+    * This time our `+` operator works as a concatenation operator evaluating first the first operand `true`. By specification `true` is converted into the string `'true'` (this happens because the second operand when coerce results into a string).
     * We now evaluate our second operand `[]`, which translates into the empty string `''`.
     * In short, `true+[]` > `'true'+[]` > `'true'+''` > `'true'`.
 * Our expression is now `('true'+![]).length`. The now move forward with `'true'+![]`.

@@ -9,7 +9,7 @@ Number('.')     // NaN
 ```
 
 ### Why?
-When converting strings into numbers Javascript is able to understand that a period before or after a numeric value represents a decimal number. That's the reason why the get `0` as the result of the first two expressions.
+When converting strings into numbers  is able to understand that a period before or after a numeric value represents a decimal number. That's the reason why the get `0` as the result of the first two expressions.
 
 However, the period by itself represents the character `.`, which can not be converted into a number.
 
@@ -81,7 +81,7 @@ Number.MIN_VALUE < 0;   //false
 ### Why?
 It's easy to understand that `Number.MAX_VALUE` is bigger than `0`, however it's weird that `Number.MIN_VALUE` is not smaller than `0`.
 
-That's because `Number.MIN_VALUE` is not actually the minimum value possible in Javascript as counting with negative numbers, but the minimum positive value, which is a very very very number (`5e-324` to be specific) but bigger than `0`.
+That's because `Number.MIN_VALUE` is not actually the minimum value possible in  as counting with negative numbers, but the minimum positive value, which is a very very very number (`5e-324` to be specific) but bigger than `0`.
 
 We can safely use `Number.MIN_SAFE_INTEGER`, the smallest integer `n`, i.e. −(2<sup>53</sup>−1).
 
