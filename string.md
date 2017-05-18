@@ -36,6 +36,20 @@ On the other hand, when converting an object into a string  tries to convert it 
 
 ## WTF
 ```js
+String({})      // '[object Object]'
+String([])      // ''
+```
+
+### Why?
+Because the grammar cannot interpret the string `'[object Object]'` the result it `NaN`. As for the empty string `''` it is converted into `0`.
+
+### Further Reading
+* [Kyle Simpsons - What the... JavaScript? (YouTube)](https://www.youtube.com/watch?v=2pL28CcEijU)
+* [ECMAScript® 2015 Language Specification - The Number Constructor](https://www.ecma-international.org/ecma-262/6.0/index.html#sec-number-constructor)
+* [ECMAScript® 2015 Language Specification - The String Constructor](https://www.ecma-international.org/ecma-262/6.0/index.html#sec-string-constructor)
+
+## WTF
+```js
 var s = Symbol('Hello World')   // Symbol(Hello World)
 
 String(s)   // 'Symbol(Hello World)'

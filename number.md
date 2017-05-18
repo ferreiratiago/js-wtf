@@ -26,17 +26,9 @@ Number([])      // 0
 ### Why?
 The reason for this is because when the method `Number` gets an Object as argument it tries to convert it to a non-Object type. In this case it convert both `{}` and `[]` to string values.
 
-```js
-String({})      // '[object Object]'
-String([])      // ''
-```
-
-Because the grammar cannot interpret the string `'[object Object]'` the result it `NaN`. As for the empty string `''` it is converted into `0`.
-
 ### Further Reading
 * [Kyle Simpsons - What the... JavaScript? (YouTube)](https://www.youtube.com/watch?v=2pL28CcEijU)
 * [ECMAScript® 2015 Language Specification - The Number Constructor](https://www.ecma-international.org/ecma-262/6.0/index.html#sec-number-constructor)
-* [ECMAScript® 2015 Language Specification - The String Constructor](https://www.ecma-international.org/ecma-262/6.0/index.html#sec-string-constructor)
 
 ## WTF
 ```js
