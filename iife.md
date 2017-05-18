@@ -56,15 +56,15 @@ However, please do remember that this approach makes the code less readable.
 
 #### ~ WTF
 ```js
-var foo = function () { return 'Hello World' }()
+var foo = function () { /* code */ }()
 
-true && function () { console.log('Hello World') }()
-0, function () { console.log('Hello World') }()
+true && function () { /* code */ }()
+0, function () { /* code */ }()
 
-+function () { console.log('Hello World') }()
--function () { console.log('Hello World') }()
-*function () { console.log('Hello World') }()
-~function () { console.log('Hello World') }()
++function () { /* code */ }()
+-function () { /* code */ }()
+*function () { /* code */ }()
+~function () { /* code */ }()
 ```
 
 ### Further Reading
