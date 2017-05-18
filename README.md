@@ -1,0 +1,11 @@
+# WTF
+* [Arrays](#array)
+* [Math](#math)
+* [Number](#number)
+* [Operators](#operators)
+* [String](#string)
+* [Destructuring](#destructuring)
+* [IIFE](#iife)
+* [TDZ](#tdz)
+* [Lexical Grammar](#lexical-grammar)
+* [Statements](#statements)
