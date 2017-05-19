@@ -15,11 +15,11 @@ foo({}, {});            // undefined 20
 ### Why?
 The inconsistency is on the last line with `foo({}, {})`'s result of `undefined 20`.
 
-As for the first argument the value of `{}` is able to override the default value of `{y: 10}`. Because our passed object `{}` does not have a value for `y`, `x.y` will log `undefined`.
+Our first argument `{}` is able to override the default value of `{y: 10}`. `x.y` logs `undefined`.
 
-On the other side, the provided value of `{}` as the second argument is only able to override the default value assign to `{y = 20}`. Through destructuring we are able to declare `y` even when the provided argument is an empty object (as in this case). This means, that for the second argument we are not able to override the destructuring `{y = 20}`. We will always have our variable `y` declared.
+However, our second argument `{}` is not able to override our variable `y` and not having it declared.
 
-The inconsistency comes when we expect the same behaviour for our first argument `x = {y: 10}`.
+The inconsistency comes because the syntax is quite similar but the behaviour varies depending on the way we do destructuring.
 
 ### Further Reading
 * [ExploringJS - Destructuring](http://exploringjs.com/es6/ch_destructuring.html)

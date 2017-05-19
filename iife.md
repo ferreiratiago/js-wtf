@@ -1,7 +1,7 @@
-# IIFE
-`IIFE` (Immediately-Invoked Function Expression) is the JavaScript way to create an execution context and execute it immediately.
+# Immediately-Invoked Function Expression
+Immediately-Invoked Function Expression (`IIFE`) is the JavaScript way to create an execution context and execute it immediately.
 
-By creating a function a new execution context is created and all variables and functions only live there, meaning that they cannot be access from the outside.
+By creating a function, a new execution context is created and all variables and functions only live there, meaning that they cannot be access from the outside.
 
 ## WTF
 ```js
@@ -11,10 +11,9 @@ function () { console.log('Hello World') }()       // SyntaxError: Unexpected to
 ### Why?
 When the parser encounters the `function` keyword in the global scope or inside another function it treats it as a `function declaration` and not as a `function expression`.
 
-The `SyntaxError` exception is because the function declaration requires a name and the parser got our `(` after the `function` keyword instead of the name.
+The `SyntaxError` exception is because the function declaration requires a `name` and the parser gets our `(` after the `function` keyword instead.
 
-In order to treat it as a `function expression` we need to explicitly tell the parser.
-
+To treat it as a `function expression` we need to explicitly tell the parser, e.g.
 ```js
 (function () { console.log('Hello World') })()     // 'Hello World'
 ```
@@ -29,9 +28,9 @@ function foo() { console.log('Hello World') }()  // SyntaxError: Unexpected toke
 ```
 
 ### Why?
-Although we have overcome the first `SyntaxError` and our function declaration being completely valid, we still can't execute it by putting parens (parentheses, `()`). The `SyntaxError` is now for a different reason.
+Although our function declaration is valid, we can't execute it by adding parens (i.e. `()`).
 
-We usually place parens after an expression in order to indicate that the expression is a function and we want to executed. However, this is not true when placed after a statement. In this case they work as a grouping operator, which is useful to control the precedence of evaluation.
+We usually place parens after an expression in order to indicate that an expression is a function and we want to execute it. However, this is not true when placed after a statement. In this case parens work as a grouping operator, which is useful to control precedence.
 
 The `SyntaxError` comes because a grouping operator needs to contain an expression.
 
@@ -44,7 +43,7 @@ The `SyntaxError` comes because a grouping operator needs to contain an expressi
 ```
 
 ### Why?
-The big difference here is that we are dealing with `function expressions`.
+We are now dealing with a `function expression`.
 
 When our parser reaches our unary operator `!` it expects an expression after it.
 
@@ -52,9 +51,7 @@ Because we have a `function expression` followed by parens our function would be
 
 Although we don't need to wrap our function inside parens (this is because our parser is already expecting an expression), it's still a good idea to use them. Such parens will typically indicate that the function expression is to be executed immediately. Also, it is a good convention.
 
-However, please do remember that this approach makes the code less readable.
-
-#### ~ WTF
+#### +WTF
 ```js
 var foo = function () { /* code */ }()
 
