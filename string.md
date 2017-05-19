@@ -15,6 +15,7 @@ The team has decided to lie to the user when stringifying `-0` because most peop
 ### Further Reading
 * [ECMAScript® 2015 Language Specification - ToString Applied to the Number Type](https://www.ecma-international.org/ecma-262/6.0/index.html#sec-tostring-applied-to-the-number-type)
 * [Kyle Simpsons - What the... JavaScript? (YouTube)](https://www.youtube.com/watch?v=2pL28CcEijU)
+* [2ality - JavaScript’s two zeros](http://2ality.com/2012/03/signedzero.html)
 
 ## WTF
 ```js
@@ -33,20 +34,6 @@ On the other hand, when converting an object into a string  tries to convert it 
 ### Further Reading
 * [ECMAScript® 2015 Language Specification - ToString](https://www.ecma-international.org/ecma-262/6.0/index.html#sec-tostring)
 * [Kyle Simpsons - What the... JavaScript? (YouTube)](https://www.youtube.com/watch?v=2pL28CcEijU)
-
-## WTF
-```js
-String({})      // '[object Object]'
-String([])      // ''
-```
-
-### Why?
-Because the grammar cannot interpret the string `'[object Object]'` the result it `NaN`. As for the empty string `''` it is converted into `0`.
-
-### Further Reading
-* [Kyle Simpsons - What the... JavaScript? (YouTube)](https://www.youtube.com/watch?v=2pL28CcEijU)
-* [ECMAScript® 2015 Language Specification - The Number Constructor](https://www.ecma-international.org/ecma-262/6.0/index.html#sec-number-constructor)
-* [ECMAScript® 2015 Language Specification - The String Constructor](https://www.ecma-international.org/ecma-262/6.0/index.html#sec-string-constructor)
 
 ## WTF
 ```js
@@ -76,7 +63,7 @@ By definition `parseInt` function converts its first argument to a string, parse
 
 The problem here are the characters that do not represent a valid number in the specified `radix` (by default is `10`). In our first `15` example, both `1` and `5` are valid numbers on base `10`, therefore the execution of `parseInt` works smoothly and the integer `15` is returned.
 
-However, "if `parseInt` encounters a character that is not a numeral in the specified radix, it ignores it and all succeeding characters and returns the integer value parsed up to that point." This explains why our last example resolves into `NaN`, meaning that when the engine encounters the first character that is not a numeral, i.e. `m`, there's no integer value parsed until then.
+However, *"if `parseInt` encounters a character that is not a numeral in the specified radix, it ignores it and all succeeding characters and returns the integer value parsed up to that point."* This explains why our last example resolves into `NaN`, meaning that when the engine encounters the first character that is not a numeral, i.e. `m`, there's no integer value parsed until then.
 
 ### Further Reading
 * [MDN - parseInt](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
