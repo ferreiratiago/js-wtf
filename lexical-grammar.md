@@ -23,7 +23,7 @@ function foo() {
 }
 ```
 
-Now, when executing `foo`, our return value would be `undefined` instead of `Hello World`.
+Now, when executing `foo`, our return value is `undefined` instead of `Hello World`.
 
 The same rule of automatic semicolon insertion is valid for the statements `continue`, `break`, `throw`, `yield` expression and `arrow functions`.
 

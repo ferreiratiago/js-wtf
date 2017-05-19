@@ -7,9 +7,9 @@ Math.max() > Math.min()   // false
 ```
 
 ### Why?
-`Math.max()` returns `-Infinity` when no arguments are provided, i.e. the smallest value possible. By having `-Infinity` as the base to compare, `Math.max()` will always return the correct result when only a single value is given.
+`Math.max()` returns `-Infinity` when no arguments are provided, i.e. the smallest possible value. By having `-Infinity` as the base of comparison, `Math.max()` will always return the correct result when only a single value is provided.
 
-Following the same idea `Math.min()` returns `Infinity` when no arguments are provided, i.e. the highest value possible.
+Following the same idea, `Math.min()` returns `Infinity` when no arguments are provided, i.e. the highest possible value.
 
 Therefore, when comparing `Math.max() > Math.min()` we are actually comparing `-Infinity > Infinity`, which is `false`.
 
