@@ -12,11 +12,9 @@ The `+` operator being commutative is only true for numbers.
 
 In this example the `+` operator is being used in two distinct contexts.
 
-For the expression `[] + {}` `+` behaves as an operator to append multiple strings, mainly `[]` and `{}`. Through `Coercion` both operands are converted to string using the static methods `.toString`, which results into `[].toString() + ({}).toString()`. This last one translates into `'' + [object Object]` that explains the final result of `'[object Object]'`.
+For the expression `[] + {}`, `+` behaves as an operator to append multiple strings, mainly `[]` and `{}`. Through `coercion` both operands are converted to string using the static methods `.toString`, which results into `[].toString() + ({}).toString()`. This concatenation translates into `'' + [object Object]` that explains the final result of `'[object Object]'`.
 
-On last expression `{} + []` the first operant is a pair of curly brackets (i.e. an empty block). This empty blocks means that we don't to anything, therefore we more forward with our execution.
-
-When reaching the `+` operator it behaves an unary operator because it only has the one operant `[]`. Through `Coercion` `[]` translates into `0` and we end up with the final result of `0`.
+For the expression `{} + []`, the first operant is a pair of curly brackets (i.e. an empty block). This empty block means that there's nothing to do, therefore we more forward with our execution. When reaching the `+` operator it behaves as an unary operator because it only has the one operant `[]`. Through `coercion` `[]` translates into `0`.
 
 ### Further Reading
 * [ECMAScript® 2015 Language Specification - Unary plus (+)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Unary_plus)
@@ -44,9 +42,9 @@ Therefore, the expression `true + true` is translated into `1 + 1` that returns 
 ```
 
 ### Why?
-This is not a problem to be fair.
+This is not a problem of JavaScript to be fair.
 
-**This is because computers can only natively store integers and therefore need some way to represent decimal numbers. This representation comes with some degree of inaccuracy. - [Source](http://0.30000000000000004.com/)** That's why we get the problem described above.
+**This is because computers can only natively store integers and therefore need some way to represent decimal numbers. This representation comes with some degree of inaccuracy. - [Source](http://0.30000000000000004.com/)**
 
 In detail, the values `0.1` and `0.2` translate into the fractional values of `1/10` and `1/5` which are both repeating numbers on a binary representation. When we do math on repeating decimals, we end up with leftovers which carry over when converting our base 2 result into a base 10 number.
 
@@ -63,11 +61,11 @@ Btw, the value result for `0.1 + 0.2` is actually `0.30000000000000004`.
 ```
 
 ### Why?
-The reason for this is `Coercion`, which says that when the operands of an operator are different types, one of them is converted into the other's type.
+The reason for this is `coercion`, which says that when the operands of an operator are from different types, one of them is converted into the other's type.
 
 On the first expression `1 < 2 < 3` we will first solve `1 < 2`, which is `true` and then implicitly `true < 3`. In this case `true` is converted into `1` because of coercion and the final expression is `1 < 3`, which is `true`.
 
-As for the second expression `3 > 2 > 1`, we will end up with `true > 1` (`true` as the result from `3 > 2`), and because `true` is converted into `1` the expression `true > 1` is equal to `false`.
+As for the second expression `3 > 2 > 1`, we will end up with `true > 1` (`true` is the result of `3 > 2`), and because `true` is converted into `1` the expression `true > 1` is equal to `false`.
 
 ### Further Reading
 * [MDN - Comparison operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators#Less_than_operator)
@@ -82,7 +80,7 @@ As for the second expression `3 > 2 > 1`, we will end up with `true > 1` (`true`
 ### Why?
 By specification the addition operator either performs string concatenation or numeric addition. When one of the operands is a string, the engine converts the other operand to a string and returns the concatenation of both operands. In this case, because our left operand `'5'` is a string the final result is the concatenation of `'5'` and `String(3)`, i.e. `'53'`.
 
-On the other hand, the `-` operator performs subtraction on two operands of numeric type. When an operator is not of the type `Number` the engine will convert it into a number. For that reason the string `'5'` is converted into the number `5` to which is subtracted `3`. The final result is the number `2`.
+On the other hand, the `-` operator performs subtraction on two operands of numeric type. When an operator is not of the type `Number` the engine converts it to a number. For that reason the string `'5'` is converted into the number `5` to which is subtracted `3`. The final result is the number `2`.
 
 ## Further Reading
 * [You Don't Know JS: Types & Grammar by Kyle Simpson](https://www.safaribooksonline.com/library/view/you-dont-know/9781491905159/ch04.html)

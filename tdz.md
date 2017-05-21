@@ -56,7 +56,7 @@ let b = 1;
 ### Why?
 TDZ only happen with the new ES6 `let` and `const` variables declaration.
 
-Because of this `typeof a` will return `undefined` due to the fact that `var`iable `a` is not defined. As for `typeof b`, the exception `ReferenceError` is thrown because `b` is defined but not initialized. This reference to the variable `b` before it's initialization falls into `b` TDZ.
+Because of this `typeof a` will return `undefined` due to the fact that `var`iable `a` is not defined. As for `typeof b`, the exception `ReferenceError` is thrown because `b` is defined but not initialized. This reference to the variable `b` before it's initialization falls into `b`'s TDZ.
 
 Usually we could use `typeof` to make sure a variables existed and had a value. As with ES6 `let` and `const` we need to be aware of this TDZ semantics.
 
